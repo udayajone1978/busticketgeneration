@@ -1,56 +1,56 @@
-<html>
-{% extends 'busapp/base1.html' %}
-{% block content %}
+<!--<html>-->
+<!--{% extends 'busapp/base1.html' %}-->
+<!--{% block content %}-->
 
-<head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-    <script>
-    $(document).ready( function () {
-        $('#mytable').DataTable();
+<!--<head>-->
+<!--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">-->
+<!--    <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
+<!--    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>-->
+<!--    <script>-->
+<!--    $(document).ready( function () {-->
+<!--        $('#mytable').DataTable();-->
 
-    } );
-    </script>
+<!--    } );-->
+<!--    </script>-->
 
-</head>
-<body>
+<!--</head>-->
+<!--<body>-->
 
-<h1 >
-    Driver Details
-</h1>
-<table id="mytable" class="datatable" cellspacing="1" cellpadding="1" border="1" >
-    <thead>
-        <tr class="dt-control">
+<!--<h1 >-->
+<!--    Driver Details-->
+<!--</h1>-->
+<!--<table id="mytable" class="datatable" cellspacing="1" cellpadding="1" border="1" >-->
+<!--    <thead>-->
+<!--        <tr class="dt-control">-->
 
-            <th class="sorting_1"> Driver name</th>
-            <th> age</th>
-            <th> Contact Number</th>
-            <th> Bus Number</th>
-
-
-
-        </tr>
-    </thead>
-    <tbody>
-
-        <tr>
-            {% if emp_list %}
-            {% for template in emp_list %}
-            <td>{{template.drivername}}</td>
-            <td>{{template.age}}</td>
-            <td>{{template.contact_no}}</td>
-            <td>{{template.bus_no}}</td>
+<!--            <th class="sorting_1"> Driver name</th>-->
+<!--            <th> age</th>-->
+<!--            <th> Contact Number</th>-->
+<!--            <th> Bus Number</th>-->
 
 
-        </tr>
 
-    </tbody>
-      {% endfor %}
-      {% endif %}
-</table>
+<!--        </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+
+<!--        <tr>-->
+<!--            {% if emp_list %}-->
+<!--            {% for template in emp_list %}-->
+<!--            <td>{{template.drivername}}</td>-->
+<!--            <td>{{template.age}}</td>-->
+<!--            <td>{{template.contact_no}}</td>-->
+<!--            <td>{{template.bus_no}}</td>-->
 
 
-</body>
-{% endblock %}
-</html>
+<!--        </tr>-->
+
+<!--    </tbody>-->
+<!--      {% endfor %}-->
+<!--      {% endif %}-->
+<!--</table>-->
+
+
+<!--</body>-->
+<!--{% endblock %}-->
+<!--</html>-->
