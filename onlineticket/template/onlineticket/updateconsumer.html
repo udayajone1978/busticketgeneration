@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Upadte Consumer Details</h1>
+
+<form method="post">
+
+    Name:<input type="text" name="name" value="{{consumer_data.name}}"><br>
+    Age:<input type="number" name="age" value="{{consumer_data.age}}"><br>
+    Address:<input type="text" name="address" value="{{consumer_data.address}}"><br>
+    phone_no:<input type="number" name="phone" value="{{consumer_data.phone}}"><br>
+    Start:<input type="text" name="start" value="{{consumer_data.start}}"><br>
+    End:<input type="text" name="end" value="{{consumer_data.end}}"><br>
+    Date:<input type="date" name="date" value="{{consumer_data.date}}"><br>
+    Time:<input type="time" name="time" value="{{consumer_data.time}}"><br>
+    <br>
+    {% csrf_token %}
+    <input type ="submit" name ="Add">
+    </br>
+
+</form>
+
+
+</body>
+</html>

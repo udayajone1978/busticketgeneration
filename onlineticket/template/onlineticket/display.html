@@ -1,0 +1,58 @@
+
+<html>
+{% extends 'onlineticket/base.html' %}
+{% block content %}
+<p></p><h1 align="Center"><u>Bus<span style="color:red"> details</span></p></u></h1>
+<style>
+    h2{color:blue;}
+</style>
+<table border="1" width="850" height="200" bgcolor="yellow">
+<font color="White">
+
+<tr bgcolor="grey">
+
+<th rowspan="2" ><font color="White">Bus_name</font></th>
+<th rowspan="2"><font color="White">Bus_number</font></th>
+<th colspan="2"><font color="White">Route</font></th>
+<th rowspan="2"><font color="White">Total seat</font></th>
+<th rowspan="2"><font color="White">Remaining seats</font></th>
+<th rowspan="2"><font color="White">Amount</font></th>
+<th rowspan="2"><font color="White">Date</font></th>
+<th rowspan="2"><font color="White">Time</font></th>
+<th rowspan="2"><font color ="white">Options</font></th>
+    </tr>
+    <tr bgcolor="grey">
+    <th><font color="White">Source</font></th>
+    <th><font color="White">Destination</font></th>
+    </tr>
+</th>
+
+<tr>
+     {% if ticket %}
+     {% for st in ticket %}
+
+
+
+     <td>{{st.bus_name}}</td>
+     <td>{{st.bus_num}}</td>
+     <td>{{st.start}}</td>
+     <td>{{st.end}}</td>
+     <td>{{st.seats}}</td>
+     <td>{{st.balanseat}}</td>
+     <td>{{st.amount}}</td>
+     <td>{{st.date}}</td>
+     <td>{{st.time}}</td>
+    <td><a href="/update/{{st.id}}">Update</a> &nbsp; &nbsp; <a href="/delete/{{st.id}}"> Delete</a></td>
+
+    </tr>
+
+{% endfor %}
+{% endif %}
+</table>
+<br>
+<br>
+<h2 align ="center">
+<a href="/add" ><button type= "button"><font color="red">Add new Bus Details </font></button></a></h2>
+{% endblock%}
+
+</html>

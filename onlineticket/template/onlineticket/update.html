@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Update</title>
+</head>
+<body>
+<h1>
+  Update Bus Details
+</h1>
+{% extends 'onlineticket/base.html' %}
+{% block content %}
+<form method = 'POST' >
+
+
+       Bus_name <input type="text" name="bus_name" value="{{bus_data.bus_name}}"> <br>
+       Bus_num  <input type="text" name="bus_num" Value="{{bus_data.bus_num}}"> <br>
+       Start   <input type="text" name="start" Value="{{bus_data.start}}"> <br>
+       End      <input type="text" name="end" Value="{{bus_data.end}}"> <br>
+       Seats    <input type="number" name="seats" Value="{{bus_data.seats}}"><br>
+       Balanseat<input type="number" name="balanseat" Value="{{bus_data.balanseat}}"> <br>
+       Amount <input type="number" name="amount" Value="{{bus_data.amount}}"> <br>
+       Date     <input type="date" name="date" Value="{{bus_data.date}}"> <br>
+       Time     <input type="time" name="time" Value="{{bus_data.time}}"> <br>
+
+       {% csrf_token %}
+     <input type='submit' value="Update Busdetails">
+
+</form>
+{% endblock %}
+</body>
+</html>
