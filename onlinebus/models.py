@@ -25,3 +25,14 @@ class consumer(models.Model):
 from django.contrib.auth.models import Group
 class Mymodel(models.Model):
     group=models.ForeignKey(Group,on_delete=models.CASCADE)
+
+class busdriver(models.Model):
+    fk=models.ForeignKey(bus,on_delete=models.CASCADE)
+
+@property
+def name(self):
+    return self.fk.bus_name
+
+@property
+def num(self):
+    return self.fk.bus_num
