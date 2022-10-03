@@ -1,5 +1,5 @@
 from django.contrib import admin
-from onlineticket.models import bus,consumer
+from onlinebus.models import bus,consumer,Mymodel
 
 
 class busadmin(admin.ModelAdmin):
@@ -10,5 +10,7 @@ admin.site.register(bus,busadmin)
 class consumeradmin(admin.ModelAdmin):
     consumerdetail=["name","age","address","phone","start","end","date","time"]
 
+
 admin.site.register(consumer,consumeradmin)
+admin.site.register(Mymodel)
 

@@ -1,7 +1,7 @@
 
 from django.shortcuts import render,redirect,HttpResponse
-from onlineticket.models import bus,consumer
-from onlineticket.forms import busform,consumerform
+from onlinebus.models import bus,consumer
+from onlinebus.forms import busform,consumerform
 from django.contrib import admin
 
 
@@ -14,8 +14,8 @@ def add_post(request):
 
 
 def display_view(request):
-    ticket=bus.objects.all()
-    return render(request,"onlineticket/display.html",{"ticket":ticket})
+    ticket1=bus.objects.all()
+    return render(request,"template/onlinebus/display.html",{"ticket1":ticket1})
 
 def add_view(request):
     form=busform()
@@ -25,7 +25,7 @@ def add_view(request):
             form.save()
             return redirect('/display')
 
-    return render(request,'onlineticket/create.html',{'form':form})
+    return render(request,'onlinebus/create.html',{'form':form})
 
 def update_view(request,id):
 
@@ -53,7 +53,7 @@ def update_view(request,id):
         bus_data.save()
 
         return redirect('/display')
-    return render(request,'onlineticket/update.html',{"bus_data":bus_data})
+    return render(request,'onlinebus/update.html',{"bus_data":bus_data})
 
 def delete_view(request ,id):
     bus_data = bus.objects.get(id=id)
@@ -62,7 +62,7 @@ def delete_view(request ,id):
 
 def consumerdisplay_view(request):
     info=consumer.objects.all()
-    return render(request,"onlineticket/consumer_display.html",{"info":info})
+    return render(request,"onlinebus/consumer_display.html",{"info":info})
 
 
 def consumer_view(request):
@@ -73,7 +73,7 @@ def consumer_view(request):
             form.save()
             return redirect('/consumerdisplay')
 
-    return render(request,'onlineticket/consumer.html',{'form':form})
+    return render(request,'onlinebus/consumer.html',{'form':form})
 
 def deleteconsumer_view(request ,id):
     info =consumer.objects.get(id=id)
@@ -101,4 +101,4 @@ def updateconsumer_view(request, id):
             consumer_data.time = time
             consumer_data.save()
             return redirect('/consumerdisplay')
-        return render(request, 'onlineticket/updateconsumer.html', {"consumer_data": consumer_data})
+        return render(request, 'onlinebus/updateconsumer.html', {"consumer_data": consumer_data})

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from onlineticket import views
+from onlinebus import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,5 +1,5 @@
 from django import forms
-from onlineticket.models import bus,consumer
+from onlinebus.models import bus,consumer
 class busform(forms.ModelForm):
     class Meta:
         model = bus
