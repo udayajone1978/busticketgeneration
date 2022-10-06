@@ -15,7 +15,7 @@ def add_post(request):
 
 def display_view(request):
     ticket1=bus.objects.all()
-    return render(request,"template/onlinebus/display.html",{"ticket1":ticket1})
+    return render(request,"onlinebus/display.html",{"ticket1":ticket1})
 
 def add_view(request):
     form=busform()
@@ -53,7 +53,7 @@ def update_view(request,id):
         bus_data.save()
 
         return redirect('/display')
-    return render(request,'onlinebus/update.html',{"bus_data":bus_data})
+    return render(request,'templates/onlinebus/update.html',{"bus_data":bus_data})
 
 def delete_view(request ,id):
     bus_data = bus.objects.get(id=id)
