@@ -3,6 +3,11 @@ from django.shortcuts import render,redirect,HttpResponse
 from onlinebus.models import bus,consumer
 from onlinebus.forms import busform,consumerform,contactform
 from django.contrib import admin
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
+from .forms import contactform
+
 
 
 def add_post(request):
@@ -102,34 +107,28 @@ def updateconsumer_view(request, id):
             consumer_data.save()
             return redirect('/consumerdisplay')
         return render(request, 'onlinebus/updateconsumer.html', {"consumer_data": consumer_data})
-def index(request):
-    form_class = contactform
-    form= form_class(request.POST or None)
-    if request.method=='POST':
-        #form=contactform(request.POST)
 
-    if form.is_valid():
-        print("The form is valid")
-        name = request.POST.get('nome')
-        email = request.POST.get('email')
-        msg = request.POST.get('msg')
-        return redirect('index')
-    else:
-        form=contactform()
 
-    return request(request,'onlinebus/index.html',{'form1':form}
-    )
 
-form_class = ContactForm
-    # if request is not post, initialize an empty form
-    form = form_class(request.POST or None)
+def index_view(request):
     if request.method == 'POST':
+        form = contactform(request.POST)
 
         if form.is_valid():
-            name = request.POST.get('nome')
-            email = request.POST.get('email')
-            msg = request.POST.get('msg')
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            content = form.cleaned_data['content']
 
-            send_mail('Subject here', msg, email, ['testmail@gmail.com'], fail_silently=False)
-            return HttpResponseRedirect('blog/inicio')
-    return render(request, 'blog/inicio.html', {'form': form})
+            html = render_to_string('onlinebus/index.html', {
+                'name': name,
+                'email': email,
+                'content': content,
+            })
+
+            send_mail('The contact form subject', 'This is the message', 'noreply@codewithstein.com', ['udayajone@gmail.com'], fail_silently=False,)
+
+            return redirect('/index')
+    else:
+        form = contactform()
+
+    return render(request, 'onlinebus/index.html', {'form': form })

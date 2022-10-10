@@ -14,6 +14,12 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django import template
+from django.core.checks import templates
+
+import busticketproject
+import onlinebus
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -27,7 +33,7 @@ SECRET_KEY = 'django-insecure-_7_z#v0ymk$8p-@@*mup$=65z9kbrq-9j#%9ue+=-%qmn(^6m7
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackEnd'
 
 # Application definition
 
