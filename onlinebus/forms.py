@@ -9,3 +9,8 @@ class consumerform(forms.ModelForm):
     class Meta:
         model= consumer
         fields='__all__'
+
+class contactform(forms.Form):
+    name=forms.CharField(max_length=225)
+    email=forms.EmailField()
+    content=forms.CharField(widget=forms.Textarea)

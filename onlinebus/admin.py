@@ -14,6 +14,7 @@ class driveradmin(admin.ModelAdmin):
     driverdetail=["drivername","age","contact_no","bus_no"]
 
 
+
 admin.site.register(consumer,consumeradmin)
 admin.site.register(Mymodel)
 admin.site.register(driver,driveradmin)

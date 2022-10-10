@@ -1,7 +1,7 @@
 
 from django.shortcuts import render,redirect,HttpResponse
 from onlinebus.models import bus,consumer
-from onlinebus.forms import busform,consumerform
+from onlinebus.forms import busform,consumerform,contactform
 from django.contrib import admin
 
 
@@ -102,3 +102,34 @@ def updateconsumer_view(request, id):
             consumer_data.save()
             return redirect('/consumerdisplay')
         return render(request, 'onlinebus/updateconsumer.html', {"consumer_data": consumer_data})
+def index(request):
+    form_class = contactform
+    form= form_class(request.POST or None)
+    if request.method=='POST':
+        #form=contactform(request.POST)
+
+    if form.is_valid():
+        print("The form is valid")
+        name = request.POST.get('nome')
+        email = request.POST.get('email')
+        msg = request.POST.get('msg')
+        return redirect('index')
+    else:
+        form=contactform()
+
+    return request(request,'onlinebus/index.html',{'form1':form}
+    )
+
+form_class = ContactForm
+    # if request is not post, initialize an empty form
+    form = form_class(request.POST or None)
+    if request.method == 'POST':
+
+        if form.is_valid():
+            name = request.POST.get('nome')
+            email = request.POST.get('email')
+            msg = request.POST.get('msg')
+
+            send_mail('Subject here', msg, email, ['testmail@gmail.com'], fail_silently=False)
+            return HttpResponseRedirect('blog/inicio')
+    return render(request, 'blog/inicio.html', {'form': form})

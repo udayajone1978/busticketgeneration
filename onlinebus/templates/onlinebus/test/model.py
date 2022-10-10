@@ -5,8 +5,8 @@ from onlinebus.models import bus
 class bustestcase(TestCase):
     def setUp(self):
         print("Setup Activity")
-        bus.objects.create(bus_name=21,bus_no="Ganga",start="Thanjavur",end="Chennai",seats=150,balanseat=4,amount=450,date="2022-7-10",time="04:52")
-        bus.objects.create(bus_name=25,bus_no="Ranga",start="Thanjavur",end="Chennai",seats = 150, balanseat = 4, amount = 450, date="2022-7-10", time="04:55")
+        bus.objects.create(bus_name="Ganga",bus_no=21,start="Thanjavur",end="Chennai",seats=150,balanseat=4,amount=450,date="2022-7-10",time="04:52")
+        bus.objects.create(bus_name="Ranga",bus_no=25,start="Thanjavur",end="Chennai",seats = 150, balanseat = 4, amount = 450, date="2022-7-10", time="04:55")
 
     def test_bus_info(self):
         print("Testing Bus Information")

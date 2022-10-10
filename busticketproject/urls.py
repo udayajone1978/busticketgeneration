@@ -28,5 +28,6 @@ urlpatterns = [
     path('addconsumer/',views.consumer_view),
     path('deleteconsumer/<id>',views.deleteconsumer_view),
     path('updateconsumer/<id>',views.updateconsumer_view),
+    path('index/',views.index),
       ]
 
