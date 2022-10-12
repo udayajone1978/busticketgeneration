@@ -129,7 +129,7 @@ def index_view(request):
             time = form.cleaned_data['time']
             content = form.cleaned_data['content']
 
-            html = render_to_string('busbookapp/email.html', {
+            html = render_to_string('onlinebus/index.html', {
                 'name': name,
                 'age': age,
                 'email': email,
