@@ -33,7 +33,6 @@ SECRET_KEY = 'django-insecure-_7_z#v0ymk$8p-@@*mup$=65z9kbrq-9j#%9ue+=-%qmn(^6m7
 DEBUG = True
 
 ALLOWED_HOSTS = []
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackEnd'
 
 # Application definition
 
@@ -44,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'busapp',
     'onlinebus',
 ]
 
@@ -128,6 +126,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+EMAIL_BACKEND='django_smtp_ssl.SSLEmailBackend'
+EMAIL_HOST_USER='sanjaikumar@market-intellect.com'
+EMAIL_HOST ='smtp.zoho.com'
+EMAIL_PORT=465
+EMAIL_USE_TLS=True
+EMAIL_HOST_PASSWORD="Merkat@123"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
