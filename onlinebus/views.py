@@ -38,7 +38,7 @@ def update_view(request, id):
     bus_data = bus.objects.get(id=id)
     if request.method == 'POST':
         bus_name = request.POST["bus_name"]
-        bus_num = request.POST["bus_num"]
+        bus_no = request.POST["bus_no"]
         start = request.POST["start"]
         end = request.POST["end"]
         seats = request.POST["seats"]
@@ -47,7 +47,7 @@ def update_view(request, id):
         date = request.POST["date"]
         time = request.POST["time"]
         bus_data.bus_name = bus_name
-        bus_data.bus_num = bus_num
+        bus_data.bus_no = bus_no
         bus_data.start = start
         bus_data.end = end
         bus_data.seats = seats
@@ -58,7 +58,7 @@ def update_view(request, id):
         bus_data.save()
 
         return redirect('/display')
-    return render(request, 'templates/onlinebus/update.html', {"bus_data": bus_data})
+    return render(request, 'onlinebus/update.html', {"bus_data": bus_data})
 
 
 def delete_view(request, id):

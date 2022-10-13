@@ -1,6 +1,7 @@
 from django.db import models
 
-
+class bus_num(models.Model):
+    bus_no = models.IntegerField()
 class bus(models.Model):
     bus_name=models.CharField(max_length=20)
     bus_no=models.IntegerField()
@@ -26,7 +27,7 @@ class driver(models.Model):
     drivername=models.CharField(max_length=20)
     age=models.IntegerField()
     contact_no=models.IntegerField()
-    bus_no=models.ForeignKey(bus,on_delete=models.CASCADE)
+    bus_no=models.ForeignKey(bus_num,on_delete=models.CASCADE)
 
 from django.contrib.auth.models import Group
 class Mymodel(models.Model):

@@ -2,11 +2,11 @@
 <html>
 {% extends 'onlinebus/base.html' %}
 {% block content %}
-<p></p><h1 align="Center"><u>Bus<span style="color:red"> details</span></p></u></h1>
+<p></p><h1 align="Center"><u>Bus<span style="color:skyblue"> details</span></p></u></h1>
 <style>
     h2{color:blue;}
 </style>
-<table border="1" width="850" height="200" bgcolor="yellow">
+<table border="1" width="850" height="200" bgcolor="skyblue">
 <font color="White">
 
 <tr bgcolor="grey">
@@ -28,10 +28,8 @@
 </th>
 
 <tr>
-     {% if ticket %}
-     {% for st in ticket %}
-
-
+     {% if ticket1 %}
+     {% for st in ticket1 %}
 
      <td>{{st.bus_name}}</td>
      <td>{{st.bus_no}}</td>
