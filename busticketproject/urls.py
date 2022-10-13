@@ -30,5 +30,6 @@ urlpatterns = [
     path('deleteconsumer/<id>',views.deleteconsumer_view),
     path('updateconsumer/<id>',views.updateconsumer_view),
     path('index/',views.index_view,name="index"),
+    path('thank/',views.thank,name="thank"),
       ]
 
