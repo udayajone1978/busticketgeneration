@@ -17,7 +17,7 @@ class consumer(models.Model):
     name=models.CharField(max_length=20)
     age=models.IntegerField()
     address=models.TextField()
-    phone=models.PositiveBigIntegerField()
+    phone=models.PositiveBigIntegerField(unique=True)
     start=models.CharField(max_length=30)
     end=models.CharField(max_length=20)
     date = models.DateField()

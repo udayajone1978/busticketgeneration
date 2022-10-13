@@ -35,15 +35,15 @@ def add_view(request):
 def update_view(request, id):
     bus_data = bus.objects.get(id=id)
     if request.method == 'POST':
-        bus_name = request.POST.get["bus_name"]
-        bus_no = request.POST.get["bus_no"]
-        start = request.POST.get["start"]
-        end = request.POST.get["end"]
-        seats = request.POST.get["seats"]
-        balanseat = request.POST.get["balanseat"]
-        amount = request.POST.get["amount"]
-        date = request.POST.get["date"]
-        time = request.POST.get["time"]
+        bus_name = request.POST.get("bus_name")
+        bus_no = request.POST.get("bus_no")
+        start = request.POST.get("start")
+        end = request.POST.get("end")
+        seats = request.POST.get("seats")
+        balanseat = request.POST.get("balanseat")
+        amount = request.POST.get("amount")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
         bus_data.bus_name = bus_name
         bus_data.bus_no = bus_no
         bus_data.start = start
@@ -69,6 +69,14 @@ def consumerdisplay_view(request):
     info = consumer.objects.all()
     return render(request, "onlinebus/consumer_display.html", {"info": info})
 
+"""def add_view(request):
+    form = busform()
+    if request.method == 'POST':
+        form = busform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/display')
+    return render(request, 'onlinebus/create.html', {'form': form})"""
 
 def consumer_view(request):
     form = consumerform()
@@ -107,7 +115,7 @@ def updateconsumer_view(request, id):
         consumer_data.date = date
         consumer_data.time = time
         consumer_data.save()
-        return redirect('/thank')
+        return redirect('/consumerdisplay')
     return render(request, 'onlinebus/updateconsumer.html', {"consumer_data": consumer_data})
 
 def thank(request):
@@ -151,8 +159,7 @@ def index_view(request):
                     reply_to=[email])
                 email_msg.send()
 
-                # send_mail('Booking Details', 'This is the message', 'sanjaikumar@market-intellect.com',
-                #           ['janavinoth2000@gmail.com'], html_message=html)
+
                 return redirect("/thank")
 
 
